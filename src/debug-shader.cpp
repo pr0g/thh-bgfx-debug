@@ -9,39 +9,39 @@
 namespace dbg
 {
 
-static const bgfx::EmbeddedShader s_simple_embedded_shaders[] = {
+static const bgfx::EmbeddedShader SimpleEmbeddedShaders[] = {
   BGFX_EMBEDDED_SHADER(vs_simple), BGFX_EMBEDDED_SHADER(fs_simple),
 
   BGFX_EMBEDDED_SHADER_END()};
 
-static const bgfx::EmbeddedShader s_instance_embedded_shaders[] = {
+static const bgfx::EmbeddedShader InstanceEmbeddedShaders[] = {
   BGFX_EMBEDDED_SHADER(vs_instance), BGFX_EMBEDDED_SHADER(fs_instance),
 
   BGFX_EMBEDDED_SHADER_END()};
 
 struct EmbeddedShaderArgs
 {
-  const char* vert_shader_name;
-  const char* frag_shader_name;
-  const bgfx::EmbeddedShader* embedded_shaders;
+  const char* vert_shader_name_;
+  const char* frag_shader_name_;
+  const bgfx::EmbeddedShader* embedded_shaders_;
 };
 
-const EmbeddedShaderArgs g_simple_embedded_shader_args = {
-  "vs_simple", "fs_simple", s_simple_embedded_shaders};
+const EmbeddedShaderArgs SimpleEmbeddedShaderArgs = {
+  "vs_simple", "fs_simple", SimpleEmbeddedShaders};
 
-const EmbeddedShaderArgs g_instance_embedded_shader_args = {
-  "vs_instance", "fs_instance", s_instance_embedded_shaders};
+const EmbeddedShaderArgs InstanceEmbeddedShaderArgs = {
+  "vs_instance", "fs_instance", InstanceEmbeddedShaders};
 
 void EmbeddedShaderProgram::init(const EmbeddedShaderArgs& embedded_shader_args)
 {
   const bgfx::RendererType::Enum type = bgfx::getRendererType();
 
   const bgfx::ShaderHandle vsh = bgfx::createEmbeddedShader(
-    embedded_shader_args.embedded_shaders, type,
-    embedded_shader_args.vert_shader_name);
+    embedded_shader_args.embedded_shaders_, type,
+    embedded_shader_args.vert_shader_name_);
   const bgfx::ShaderHandle fsh = bgfx::createEmbeddedShader(
-    embedded_shader_args.embedded_shaders, type,
-    embedded_shader_args.frag_shader_name);
+    embedded_shader_args.embedded_shaders_, type,
+    embedded_shader_args.frag_shader_name_);
 
   program_handle_ = bgfx::createProgram(vsh, fsh, true);
 }

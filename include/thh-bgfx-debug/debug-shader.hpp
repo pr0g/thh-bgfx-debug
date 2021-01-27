@@ -6,8 +6,8 @@ namespace dbg
 {
 
 struct EmbeddedShaderArgs;
-extern const EmbeddedShaderArgs g_simple_embedded_shader_args;
-extern const EmbeddedShaderArgs g_instance_embedded_shader_args;
+extern const EmbeddedShaderArgs SimpleEmbeddedShaderArgs;
+extern const EmbeddedShaderArgs InstanceEmbeddedShaderArgs;
 
 class EmbeddedShaderProgram
 {
@@ -19,7 +19,7 @@ public:
   void init(const EmbeddedShaderArgs& embedded_shader_args);
   void deinit();
 
-  bgfx::ProgramHandle handle() const { return program_handle_; };
+  [[nodiscard]] bgfx::ProgramHandle handle() const { return program_handle_; };
 };
 
 } // namespace dbg
