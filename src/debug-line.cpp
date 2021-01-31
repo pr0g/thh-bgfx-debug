@@ -1,5 +1,7 @@
 #include "thh-bgfx-debug/debug-line.hpp"
 
+#include <cstring>
+
 namespace dbg
 {
 
