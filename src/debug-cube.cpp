@@ -7,15 +7,15 @@ static constexpr int CubeVerticesCount = 8;
 static constexpr int CubeIndicesCount = 4; // 24
 
 DebugVertex DebugCubes::CubeVertices[CubeVerticesCount] = {
-  {-0.5f, 0.5f, 0.5f, 0xff000000},   {0.5f, 0.5f, 0.5f, 0xff000000},
-  {-0.5f, -0.5f, 0.5f, 0xff000000},  {0.5f, -0.5f, 0.5f, 0xff000000},
-  {-0.5f, 0.5f, -0.5f, 0xff000000},  {0.5f, 0.5f, -0.5f, 0xff000000},
-  {-0.5f, -0.5f, -0.5f, 0xff000000}, {0.5f, -0.5f, -0.5f, 0xff000000}
+  {{-0.5f, 0.5f, 0.5f}, 0xff000000},   {{0.5f, 0.5f, 0.5f}, 0xff000000},
+  {{-0.5f, -0.5f, 0.5f}, 0xff000000},  {{0.5f, -0.5f, 0.5f}, 0xff000000},
+  {{-0.5f, 0.5f, -0.5f}, 0xff000000},  {{0.5f, 0.5f, -0.5f}, 0xff000000},
+  {{-0.5f, -0.5f, -0.5f}, 0xff000000}, {{0.5f, -0.5f, -0.5f}, 0xff000000}
 };
 
 uint16_t DebugCubes::CubeIndices[CubeIndicesCount] = {
   0, 1, 3, 2
-}
+};
 
 void DebugCubes::init()
 {

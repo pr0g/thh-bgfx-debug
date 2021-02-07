@@ -21,6 +21,7 @@ add_library(${PROJECT_NAME})
 target_sources(
     ${PROJECT_NAME} PRIVATE
     src/debug-line.cpp
+    src/debug-cube.cpp
     src/debug-circle.cpp
     src/debug-sphere.cpp
     src/debug-quad.cpp
