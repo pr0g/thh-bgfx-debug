@@ -26,8 +26,7 @@ void DebugSpheres::addSphere(const as::mat4& transform, const as::vec4& color)
     const auto scale = as::mat4_from_mat3(as::mat3_scale(horizontal_scale));
 
     debug_circles_.addCircle(
-      as::mat_mul(as::mat_mul(scale, translation), transform),
-      as::vec4(as::vec3::zero(), 1.0f));
+      as::mat_mul(as::mat_mul(scale, translation), transform), color);
 
     current_vertical_angle_rad += vertical_angle_inc_rad;
   }
