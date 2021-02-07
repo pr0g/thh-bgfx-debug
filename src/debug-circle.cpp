@@ -15,7 +15,7 @@ void DebugCircles::init()
   const float increment = as::k_tau / static_cast<float>(CircleVerticesCount);
   for (size_t i = 0; i < CircleVerticesCount; ++i) {
     CircleVertices[i] = {
-      as::vec3(std::cos(rot), std::sin(rot), 0.0f), 0xff000000};
+      as::vec3(std::cos(rot), std::sin(rot), 0.0f), 0xffffffff};
     CircleIndices[i] = i;
     rot += increment;
   }
