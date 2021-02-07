@@ -36,7 +36,9 @@ void DebugLines::submit()
   as::mat_to_arr(transform_, transform);
   bgfx::setTransform(transform);
 
-  bgfx::setState(BGFX_STATE_DEFAULT | BGFX_STATE_PT_LINES);
+  bgfx::setState(
+    BGFX_STATE_DEFAULT | BGFX_STATE_PT_LINES | BGFX_STATE_LINEAA
+    | BGFX_STATE_BLEND_ALPHA);
 
   bgfx::setVertexBuffer(0, &line_tvb, 0, requested_vertex_count);
   bgfx::submit(view_, program_handle_);

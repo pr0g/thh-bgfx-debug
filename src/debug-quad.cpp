@@ -65,7 +65,7 @@ void DebugQuads::submit()
 
     bgfx::setInstanceDataBuffer(&idb);
 
-    bgfx::setState(BGFX_STATE_DEFAULT);
+    bgfx::setState(BGFX_STATE_DEFAULT | BGFX_STATE_BLEND_ALPHA);
     bgfx::submit(view_, program_handle_);
   }
 }

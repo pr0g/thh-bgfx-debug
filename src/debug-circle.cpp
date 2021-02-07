@@ -77,7 +77,10 @@ void DebugCircles::submit()
 
     bgfx::setInstanceDataBuffer(&idb);
 
-    bgfx::setState(BGFX_STATE_DEFAULT | BGFX_STATE_PT_LINESTRIP);
+    bgfx::setState(
+      BGFX_STATE_DEFAULT | BGFX_STATE_PT_LINESTRIP | BGFX_STATE_LINEAA
+      | BGFX_STATE_BLEND_ALPHA);
+
     bgfx::submit(view_, program_handle_);
   }
 }
