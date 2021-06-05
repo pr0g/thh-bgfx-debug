@@ -35,9 +35,10 @@ class DebugCircles
 public:
   static void init();
 
-  DebugCircles(bgfx::ViewId view, bgfx::ProgramHandle program_handle);
+  DebugCircles();
   ~DebugCircles();
 
+  void setRenderContext(bgfx::ViewId view, bgfx::ProgramHandle program_handle);
   void reserveCircles(size_t count);
   void addCircle(const as::mat4& transform, const as::vec4& color);
   void submit();

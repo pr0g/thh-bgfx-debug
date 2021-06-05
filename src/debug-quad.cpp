@@ -11,9 +11,7 @@ const DebugVertex DebugQuads::QuadVertices[] = {
 
 const uint16_t DebugQuads::QuadIndices[] = {0, 1, 2, 0, 2, 3};
 
-DebugQuads::DebugQuads(
-  const bgfx::ViewId view, const bgfx::ProgramHandle program_handle)
-  : view_(view), program_handle_(program_handle)
+DebugQuads::DebugQuads()
 {
   quad_vbh_ = bgfx::createVertexBuffer(
     bgfx::makeRef(QuadVertices, sizeof(QuadVertices)), DebugVertex::Layout);
@@ -25,6 +23,13 @@ DebugQuads::~DebugQuads()
 {
   bgfx::destroy(quad_vbh_);
   bgfx::destroy(quad_ibh_);
+}
+
+void DebugQuads::setRenderContext(
+  const bgfx::ViewId view, const bgfx::ProgramHandle program_handle)
+{
+  view_ = view;
+  program_handle_ = program_handle;
 }
 
 void DebugQuads::reserveQuads(const size_t count)
@@ -68,6 +73,8 @@ void DebugQuads::submit()
     bgfx::setState(BGFX_STATE_DEFAULT | BGFX_STATE_BLEND_ALPHA);
     bgfx::submit(view_, program_handle_);
   }
+
+  instances_.clear();
 }
 
 } // namespace dbg

@@ -23,9 +23,7 @@ void DebugCircles::init()
   CircleIndices[CircleIndicesCount - 1] = 0;
 }
 
-DebugCircles::DebugCircles(
-  const bgfx::ViewId view, const bgfx::ProgramHandle program_handle)
-  : view_(view), program_handle_(program_handle)
+DebugCircles::DebugCircles()
 {
   circle_vbh_ = bgfx::createVertexBuffer(
     bgfx::makeRef(CircleVertices, sizeof(CircleVertices)), DebugVertex::Layout);
@@ -37,6 +35,13 @@ DebugCircles::~DebugCircles()
 {
   bgfx::destroy(circle_vbh_);
   bgfx::destroy(circle_ibh_);
+}
+
+void DebugCircles::setRenderContext(
+  const bgfx::ViewId view, const bgfx::ProgramHandle program_handle)
+{
+  view_ = view;
+  program_handle_ = program_handle;
 }
 
 void DebugCircles::reserveCircles(const size_t count)
@@ -83,6 +88,8 @@ void DebugCircles::submit()
 
     bgfx::submit(view_, program_handle_);
   }
+
+  instances_.clear();
 }
 
 } // namespace dbg

@@ -33,9 +33,10 @@ class DebugQuads
   std::vector<QuadInstance> instances_;
 
 public:
-  DebugQuads(bgfx::ViewId view, bgfx::ProgramHandle program_handle);
+  DebugQuads();
   ~DebugQuads();
 
+  void setRenderContext(bgfx::ViewId view, bgfx::ProgramHandle program_handle);
   void reserveQuads(size_t count);
   void addQuad(const as::mat4& transform, const as::vec4& color);
   void submit();

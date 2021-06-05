@@ -35,9 +35,10 @@ class DebugCubes
 public:
   static void init();
 
-  DebugCubes(bgfx::ViewId view, bgfx::ProgramHandle program_handle);
+  DebugCubes();
   ~DebugCubes();
 
+  void setRenderContext(bgfx::ViewId view, bgfx::ProgramHandle program_handle);
   void reserveCubes(size_t count);
   void addCube(const as::mat4& transform, const as::vec4& color);
   void submit();

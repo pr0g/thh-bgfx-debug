@@ -23,9 +23,7 @@ void DebugCubes::init()
 {
 }
 
-DebugCubes::DebugCubes(
-  const bgfx::ViewId view, const bgfx::ProgramHandle program_handle)
-  : view_(view), program_handle_(program_handle)
+DebugCubes::DebugCubes()
 {
   cube_vbh_ = bgfx::createVertexBuffer(
     bgfx::makeRef(CubeVertices, sizeof(CubeVertices)), DebugVertex::Layout);
@@ -37,6 +35,13 @@ DebugCubes::~DebugCubes()
 {
   bgfx::destroy(cube_vbh_);
   bgfx::destroy(cube_ibh_);
+}
+
+void DebugCubes::setRenderContext(
+  const bgfx::ViewId view, const bgfx::ProgramHandle program_handle)
+{
+  view_ = view;
+  program_handle_ = program_handle;
 }
 
 void DebugCubes::reserveCubes(const size_t count)
@@ -83,6 +88,8 @@ void DebugCubes::submit()
 
     bgfx::submit(view_, program_handle_);
   }
+
+  instances_.clear();
 }
 
 } // namespace dbg

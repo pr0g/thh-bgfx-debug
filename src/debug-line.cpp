@@ -5,6 +5,13 @@
 namespace dbg
 {
 
+void DebugLines::setRenderContext(
+  const bgfx::ViewId view, const bgfx::ProgramHandle program_handle)
+{
+  view_ = view;
+  program_handle_ = program_handle;
+}
+
 void DebugLines::addLine(
   const as::vec3& begin, const as::vec3& end, const uint32_t col)
 {
@@ -42,6 +49,8 @@ void DebugLines::submit()
 
   bgfx::setVertexBuffer(0, &line_tvb, 0, requested_vertex_count);
   bgfx::submit(view_, program_handle_);
+
+  lines_.clear();
 }
 
 } // namespace dbg

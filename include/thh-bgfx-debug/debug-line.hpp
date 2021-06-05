@@ -27,11 +27,7 @@ class DebugLines
   std::vector<DebugLine> lines_;
 
 public:
-  DebugLines(const bgfx::ViewId view, const bgfx::ProgramHandle program_handle)
-    : view_(view), program_handle_(program_handle)
-  {
-  }
-
+  void setRenderContext(bgfx::ViewId view, bgfx::ProgramHandle program_handle);
   void setTransform(const as::mat4& transform) { transform_ = transform; }
   void addLine(const as::vec3& begin, const as::vec3& end, uint32_t col);
   void submit();
