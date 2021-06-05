@@ -10,14 +10,10 @@ DebugVertex DebugCubes::CubeVertices[CubeVerticesCount] = {
   {{-0.5f, 0.5f, 0.5f}, 0xffffffff},   {{0.5f, 0.5f, 0.5f}, 0xffffffff},
   {{-0.5f, -0.5f, 0.5f}, 0xffffffff},  {{0.5f, -0.5f, 0.5f}, 0xffffffff},
   {{-0.5f, 0.5f, -0.5f}, 0xffffffff},  {{0.5f, 0.5f, -0.5f}, 0xffffffff},
-  {{-0.5f, -0.5f, -0.5f}, 0xffffffff}, {{0.5f, -0.5f, -0.5f}, 0xffffffff}
-};
+  {{-0.5f, -0.5f, -0.5f}, 0xffffffff}, {{0.5f, -0.5f, -0.5f}, 0xffffffff}};
 
 uint16_t DebugCubes::CubeIndices[CubeIndicesCount] = {
-  0, 1, 2, 3, 4, 5, 6, 7,
-  0, 2, 1, 3, 4, 6, 5, 7,
-  0, 4, 1, 5, 2, 6, 3, 7
-};
+  0, 1, 2, 3, 4, 5, 6, 7, 0, 2, 1, 3, 4, 6, 5, 7, 0, 4, 1, 5, 2, 6, 3, 7};
 
 void DebugCubes::init()
 {
@@ -27,8 +23,8 @@ DebugCubes::DebugCubes()
 {
   cube_vbh_ = bgfx::createVertexBuffer(
     bgfx::makeRef(CubeVertices, sizeof(CubeVertices)), DebugVertex::Layout);
-  cube_ibh_ = bgfx::createIndexBuffer(
-    bgfx::makeRef(CubeIndices, sizeof(CubeIndices)));
+  cube_ibh_ =
+    bgfx::createIndexBuffer(bgfx::makeRef(CubeIndices, sizeof(CubeIndices)));
 }
 
 DebugCubes::~DebugCubes()
