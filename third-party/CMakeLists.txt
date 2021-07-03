@@ -15,8 +15,8 @@ endif()
 
 ExternalProject_Add(
     bgfx
-    GIT_REPOSITORY https://github.com/pr0g/bgfx.cmake.git
-    GIT_TAG        origin/main
+    GIT_REPOSITORY https://github.com/bkaradzic/bgfx.cmake.git
+    GIT_TAG        86b4b5a610e8bde42eb259cddc75046bc865929b
     GIT_SHALLOW    1
     BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR}/bgfx/build/${build_type_dir}
     INSTALL_DIR ${CMAKE_CURRENT_BINARY_DIR}
