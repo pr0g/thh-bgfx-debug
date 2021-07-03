@@ -33,6 +33,7 @@ target_include_directories(
 target_link_libraries(
     ${PROJECT_NAME} PUBLIC
     bgfx::bgfx
+    bgfx::bx
     as)
 set_target_properties(${PROJECT_NAME} PROPERTIES DEBUG_POSTFIX "d")
 
