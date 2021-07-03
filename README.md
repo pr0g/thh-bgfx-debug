@@ -15,6 +15,8 @@ To simplify using the library, the shaders required use the embedded shader syst
 - `make rebuild` to rebuild the shader.
   - note: `set TEMP=/tmp` required on Windows, `export TEMP=/tmp` on macOS/*nix for the `make rebuild` command to succeed (see https://github.com/bkaradzic/bgfx/issues/53 for more info).
 
+> Note: Shader file names must begin with `vs_` (vertex shader) or `fs_` (fragment shader) prefixes to be picked up correctly by the `make rebuild` command.
+
 To build a shader for an individual platform something similar to this command can be used:
 
 ```bash
