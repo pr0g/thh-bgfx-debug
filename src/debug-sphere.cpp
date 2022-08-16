@@ -8,7 +8,7 @@ DebugSpheres::DebugSpheres(DebugCircles& debug_circles)
 {
 }
 
-void DebugSpheres::addSphere(const as::mat4& transform, const as::vec4& color)
+void DebugSpheres::addSphere(const as::mat4& transform, const uint32_t color)
 {
   constexpr size_t Loops = 8;
   const float vertical_angle_inc_rad = as::radians(180.0f / float(Loops));

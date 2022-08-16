@@ -21,13 +21,13 @@ class DebugQuads
   struct QuadInstance
   {
     QuadInstance() = default;
-    QuadInstance(const as::mat4& transform, const as::vec4& color)
+    QuadInstance(const as::mat4& transform, const uint32_t color)
       : transform_(transform), color_(color)
     {
     }
 
     as::mat4 transform_;
-    as::vec4 color_;
+    uint32_t color_;
   };
 
   std::vector<QuadInstance> instances_;
@@ -38,12 +38,11 @@ public:
 
   void setRenderContext(bgfx::ViewId view, bgfx::ProgramHandle program_handle);
   void reserveQuads(size_t count);
-  void addQuad(const as::mat4& transform, const as::vec4& color);
+  void addQuad(const as::mat4& transform, uint32_t color);
   void submit();
 };
 
-inline void DebugQuads::addQuad(
-  const as::mat4& transform, const as::vec4& color)
+inline void DebugQuads::addQuad(const as::mat4& transform, const uint32_t color)
 {
   instances_.emplace_back(transform, color);
 }

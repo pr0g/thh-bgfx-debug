@@ -21,13 +21,13 @@ class DebugCircles
   struct CircleInstance
   {
     CircleInstance() = default;
-    CircleInstance(const as::mat4& transform, const as::vec4& color)
+    CircleInstance(const as::mat4& transform, const uint32_t color)
       : transform_(transform), color_(color)
     {
     }
 
     as::mat4 transform_;
-    as::vec4 color_;
+    uint32_t color_;
   };
 
   std::vector<CircleInstance> instances_;
@@ -40,12 +40,12 @@ public:
 
   void setRenderContext(bgfx::ViewId view, bgfx::ProgramHandle program_handle);
   void reserveCircles(size_t count);
-  void addCircle(const as::mat4& transform, const as::vec4& color);
+  void addCircle(const as::mat4& transform, uint32_t color);
   void submit();
 };
 
 inline void DebugCircles::addCircle(
-  const as::mat4& transform, const as::vec4& color)
+  const as::mat4& transform, const uint32_t color)
 {
   instances_.emplace_back(transform, color);
 }

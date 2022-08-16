@@ -21,13 +21,13 @@ class DebugCubes
   struct CubeInstance
   {
     CubeInstance() = default;
-    CubeInstance(const as::mat4& transform, const as::vec4& color)
+    CubeInstance(const as::mat4& transform, uint32_t color)
       : transform_(transform), color_(color)
     {
     }
 
     as::mat4 transform_;
-    as::vec4 color_;
+    uint32_t color_;
   };
 
   std::vector<CubeInstance> instances_;
@@ -40,12 +40,12 @@ public:
 
   void setRenderContext(bgfx::ViewId view, bgfx::ProgramHandle program_handle);
   void reserveCubes(size_t count);
-  void addCube(const as::mat4& transform, const as::vec4& color);
+  void addCube(const as::mat4& transform, uint32_t color);
   void submit();
 };
 
 inline void DebugCubes::addCube(
-  const as::mat4& transform, const as::vec4& color)
+  const as::mat4& transform, uint32_t color)
 {
   instances_.emplace_back(transform, color);
 }

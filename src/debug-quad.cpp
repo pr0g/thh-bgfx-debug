@@ -56,11 +56,12 @@ void DebugQuads::submit()
         as::mat_const_data(quad_instance.transform_),
         as::mat_const_data(quad_instance.transform_) + 16, inst_transform);
 
+      const auto decodeColor = decodeColorNormalized(quad_instance.color_);
       auto* color = (float*)&data[64];
-      color[0] = quad_instance.color_[0];
-      color[1] = quad_instance.color_[1];
-      color[2] = quad_instance.color_[2];
-      color[3] = quad_instance.color_[3];
+      color[0] = decodeColor.x;
+      color[1] = decodeColor.y;
+      color[2] = decodeColor.z;
+      color[3] = decodeColor.w;
 
       data += instance_stride;
     }

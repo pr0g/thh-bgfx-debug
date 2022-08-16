@@ -13,7 +13,7 @@ class DebugSpheres
 public:
   explicit DebugSpheres(DebugCircles& debug_circles);
 
-  void addSphere(const as::mat4& transform, const as::vec4& color);
+  void addSphere(const as::mat4& transform, uint32_t color);
 };
 
 } // namespace dbg
