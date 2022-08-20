@@ -68,12 +68,12 @@ void DebugCircles::submit()
         as::mat_const_data(circle_instance.transform_),
         as::mat_const_data(circle_instance.transform_) + 16, inst_transform);
 
-      const auto decodeColor = decodeColorNormalized(circle_instance.color_);
+      const auto decoded_color = decodeColorNormalized(circle_instance.color_);
       auto* color = (float*)&data[64];
-      color[0] = decodeColor.x;
-      color[1] = decodeColor.y;
-      color[2] = decodeColor.z;
-      color[3] = decodeColor.w;
+      color[0] = decoded_color.x;
+      color[1] = decoded_color.y;
+      color[2] = decoded_color.z;
+      color[3] = decoded_color.w;
 
       data += instance_stride;
     }
