@@ -13,9 +13,9 @@ void DebugLines::setRenderContext(
 }
 
 void DebugLines::addLine(
-  const as::vec3& begin, const as::vec3& end, const uint32_t col)
+  const as::vec3& begin, const as::vec3& end, const uint32_t color)
 {
-  lines_.emplace_back(begin, end, col);
+  lines_.emplace_back(begin, end, color);
 }
 
 void DebugLines::submit()

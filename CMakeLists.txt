@@ -26,7 +26,8 @@ target_sources(
     src/debug-sphere.cpp
     src/debug-quad.cpp
     src/debug-vertex.cpp
-    src/debug-shader.cpp)
+    src/debug-shader.cpp
+    src/debug-triangle.cpp)
 target_include_directories(
     ${PROJECT_NAME}
     PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>)

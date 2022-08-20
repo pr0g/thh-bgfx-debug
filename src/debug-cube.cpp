@@ -1,5 +1,7 @@
 #include "thh-bgfx-debug/debug-cube.hpp"
 
+#include "thh-bgfx-debug/debug-color.hpp"
+
 namespace dbg
 {
 
@@ -64,12 +66,13 @@ void DebugCubes::submit()
         as::mat_const_data(cube_instance.transform_),
         as::mat_const_data(cube_instance.transform_) + 16, inst_transform);
 
-      const auto decoded_color = decodeColorNormalized(cube_instance.color_);
+      const auto decoded_color =
+        decodeColorAbgrNormalized(cube_instance.color_);
       auto* color = (float*)&data[64];
-      color[0] = decoded_color.x;
-      color[1] = decoded_color.y;
-      color[2] = decoded_color.z;
-      color[3] = decoded_color.w;
+      color[0] = decoded_color.r;
+      color[1] = decoded_color.g;
+      color[2] = decoded_color.b;
+      color[3] = decoded_color.a;
 
       data += instance_stride;
     }
