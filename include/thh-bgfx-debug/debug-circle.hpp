@@ -44,6 +44,7 @@ public:
   void addSolidCircle(const as::mat4& transform, uint32_t color);
   void addWireCircle(const as::mat4& transform, uint32_t color);
   void submit();
+  void drop();
 };
 
 inline void DebugCircles::addSolidCircle(

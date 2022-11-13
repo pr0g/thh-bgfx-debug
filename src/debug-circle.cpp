@@ -135,8 +135,6 @@ static void submitCircles(
     bgfx::setState(state_flags);
     bgfx::submit(view, program_handle);
   }
-
-  instances.clear();
 }
 
 void DebugCircles::submit()
@@ -150,6 +148,12 @@ void DebugCircles::submit()
     solid_circle_vbh_, solid_circle_ibh_,
     BGFX_STATE_DEFAULT | BGFX_STATE_BLEND_ALPHA | BGFX_STATE_MSAA, view_,
     program_handle_, solid_instances_);
+}
+
+void DebugCircles::drop()
+{
+  wire_instances_.clear();
+  solid_instances_.clear();
 }
 
 } // namespace dbg

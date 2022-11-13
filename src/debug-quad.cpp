@@ -77,7 +77,10 @@ void DebugQuads::submit()
     bgfx::setState(BGFX_STATE_DEFAULT | BGFX_STATE_BLEND_ALPHA);
     bgfx::submit(view_, program_handle_);
   }
+}
 
+void DebugQuads::drop()
+{
   instances_.clear();
 }
 

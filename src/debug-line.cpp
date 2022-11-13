@@ -49,7 +49,10 @@ void DebugLines::submit()
 
   bgfx::setVertexBuffer(0, &line_tvb, 0, requested_vertex_count);
   bgfx::submit(view_, program_handle_);
+}
 
+void DebugLines::drop()
+{
   lines_.clear();
 }
 

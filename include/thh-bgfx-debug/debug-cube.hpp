@@ -42,6 +42,7 @@ public:
   void reserveCubes(size_t count);
   void addCube(const as::mat4& transform, uint32_t color);
   void submit();
+  void drop();
 };
 
 inline void DebugCubes::addCube(

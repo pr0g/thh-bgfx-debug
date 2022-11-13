@@ -54,7 +54,10 @@ void DebugTriangles::submit()
 
   bgfx::setVertexBuffer(0, &triangle_tvb, 0, requested_vertex_count);
   bgfx::submit(view_, program_handle_);
+}
 
+void DebugTriangles::drop()
+{
   triangles_.clear();
 }
 

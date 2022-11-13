@@ -31,6 +31,7 @@ public:
   void setTransform(const as::mat4& transform) { transform_ = transform; }
   void addLine(const as::vec3& begin, const as::vec3& end, uint32_t color);
   void submit();
+  void drop();
 };
 
 } // namespace dbg

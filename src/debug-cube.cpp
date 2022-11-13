@@ -88,7 +88,10 @@ void DebugCubes::submit()
 
     bgfx::submit(view_, program_handle_);
   }
+}
 
+void DebugCubes::drop()
+{
   instances_.clear();
 }
 

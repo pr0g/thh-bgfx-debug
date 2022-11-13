@@ -41,6 +41,7 @@ public:
   void addTriangle(
     const as::vec3& v1, const as::vec3& v2, const as::vec3& v3, uint32_t color);
   void submit();
+  void drop();
 };
 
 } // namespace dbg
