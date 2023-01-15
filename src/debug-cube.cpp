@@ -90,9 +90,15 @@ void DebugCubes::submit()
   }
 }
 
-void DebugCubes::drop()
+void DebugCubes::clear()
 {
   instances_.clear();
+}
+
+void DebugCubes::submit_and_clear()
+{
+  submit();
+  clear();
 }
 
 } // namespace dbg

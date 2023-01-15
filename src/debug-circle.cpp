@@ -150,10 +150,16 @@ void DebugCircles::submit()
     program_handle_, solid_instances_);
 }
 
-void DebugCircles::drop()
+void DebugCircles::clear()
 {
   wire_instances_.clear();
   solid_instances_.clear();
+}
+
+void DebugCircles::submit_and_clear()
+{
+  submit();
+  clear();
 }
 
 } // namespace dbg

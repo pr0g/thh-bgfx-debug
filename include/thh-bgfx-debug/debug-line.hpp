@@ -30,8 +30,9 @@ public:
   void setRenderContext(bgfx::ViewId view, bgfx::ProgramHandle program_handle);
   void setTransform(const as::mat4& transform) { transform_ = transform; }
   void addLine(const as::vec3& begin, const as::vec3& end, uint32_t color);
+  void submit_and_clear();
   void submit();
-  void drop();
+  void clear();
 };
 
 } // namespace dbg

@@ -79,9 +79,15 @@ void DebugQuads::submit()
   }
 }
 
-void DebugQuads::drop()
+void DebugQuads::clear()
 {
   instances_.clear();
+}
+
+void DebugQuads::submit_and_clear()
+{
+  submit();
+  clear();
 }
 
 } // namespace dbg

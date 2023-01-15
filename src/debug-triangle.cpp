@@ -56,9 +56,15 @@ void DebugTriangles::submit()
   bgfx::submit(view_, program_handle_);
 }
 
-void DebugTriangles::drop()
+void DebugTriangles::clear()
 {
   triangles_.clear();
+}
+
+void DebugTriangles::submit_and_clear()
+{
+  submit();
+  clear();
 }
 
 } // namespace dbg

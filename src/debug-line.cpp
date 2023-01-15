@@ -51,9 +51,15 @@ void DebugLines::submit()
   bgfx::submit(view_, program_handle_);
 }
 
-void DebugLines::drop()
+void DebugLines::clear()
 {
   lines_.clear();
+}
+
+void DebugLines::submit_and_clear()
+{
+  submit();
+  clear();
 }
 
 } // namespace dbg

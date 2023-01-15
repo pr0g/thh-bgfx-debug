@@ -39,8 +39,9 @@ public:
   void setRenderContext(bgfx::ViewId view, bgfx::ProgramHandle program_handle);
   void reserveQuads(size_t count);
   void addQuad(const as::mat4& transform, uint32_t color);
+  void submit_and_clear();
   void submit();
-  void drop();
+  void clear();
 };
 
 inline void DebugQuads::addQuad(const as::mat4& transform, const uint32_t color)
