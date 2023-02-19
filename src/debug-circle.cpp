@@ -99,7 +99,7 @@ static void submitCircles(
   const bgfx::VertexBufferHandle circle_vbh,
   const bgfx::IndexBufferHandle circle_ibh, const uint64_t state_flags,
   const bgfx::ViewId view, const bgfx::ProgramHandle program_handle,
-  std::vector<CircleInstance>& instances)
+  const std::vector<CircleInstance>& instances)
 {
   // 80 bytes stride = 64 bytes for mat4 + 16 bytes for RGBA color.
   constexpr uint16_t instance_stride = 80;
@@ -129,7 +129,7 @@ static void submitCircles(
       data += instance_stride;
     }
 
-    bgfx::setVertexBuffer(view, circle_vbh);
+    bgfx::setVertexBuffer(0, circle_vbh);
     bgfx::setIndexBuffer(circle_ibh);
     bgfx::setInstanceDataBuffer(&idb);
     bgfx::setState(state_flags);

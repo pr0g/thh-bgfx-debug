@@ -77,7 +77,7 @@ void DebugCubes::submit()
       data += instance_stride;
     }
 
-    bgfx::setVertexBuffer(view_, cube_vbh_);
+    bgfx::setVertexBuffer(0, cube_vbh_);
     bgfx::setIndexBuffer(cube_ibh_);
 
     bgfx::setInstanceDataBuffer(&idb);

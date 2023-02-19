@@ -69,7 +69,7 @@ void DebugQuads::submit()
       data += instance_stride;
     }
 
-    bgfx::setVertexBuffer(view_, quad_vbh_);
+    bgfx::setVertexBuffer(0, quad_vbh_);
     bgfx::setIndexBuffer(quad_ibh_);
 
     bgfx::setInstanceDataBuffer(&idb);
