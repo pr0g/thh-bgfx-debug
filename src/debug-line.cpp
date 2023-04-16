@@ -10,6 +10,8 @@ void DebugLines::setRenderContext(
 {
   view_ = view;
   program_handle_ = program_handle;
+  state_ = BGFX_STATE_DEFAULT | BGFX_STATE_BLEND_ALPHA | BGFX_STATE_PT_LINES
+         | BGFX_STATE_LINEAA;
 }
 
 void DebugLines::addLine(
@@ -43,12 +45,15 @@ void DebugLines::submit()
   as::mat_to_arr(transform_, transform);
   bgfx::setTransform(transform);
 
-  bgfx::setState(
-    BGFX_STATE_DEFAULT | BGFX_STATE_PT_LINES | BGFX_STATE_LINEAA
-    | BGFX_STATE_BLEND_ALPHA);
+  bgfx::setState(state_);
 
   bgfx::setVertexBuffer(0, &line_tvb, 0, requested_vertex_count);
   bgfx::submit(view_, program_handle_);
+}
+
+void DebugLines::setState(const uint64_t state)
+{
+  state_ = state;
 }
 
 void DebugLines::clear()
@@ -56,7 +61,7 @@ void DebugLines::clear()
   lines_.clear();
 }
 
-void DebugLines::submit_and_clear()
+void DebugLines::submitAndClear()
 {
   submit();
   clear();

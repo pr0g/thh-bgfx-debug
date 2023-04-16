@@ -10,6 +10,7 @@ void DebugTriangles::setRenderContext(
 {
   view_ = view;
   program_handle_ = program_handle;
+  state_ = BGFX_STATE_DEFAULT | BGFX_STATE_BLEND_ALPHA;
 }
 
 void DebugTriangles::addTriangle(const Triangle& triangle, const uint32_t color)
@@ -50,7 +51,7 @@ void DebugTriangles::submit()
   as::mat_to_arr(transform_, transform);
   bgfx::setTransform(transform);
 
-  bgfx::setState(BGFX_STATE_DEFAULT | BGFX_STATE_BLEND_ALPHA);
+  bgfx::setState(state_);
 
   bgfx::setVertexBuffer(0, &triangle_tvb, 0, requested_vertex_count);
   bgfx::submit(view_, program_handle_);
@@ -61,7 +62,12 @@ void DebugTriangles::clear()
   triangles_.clear();
 }
 
-void DebugTriangles::submit_and_clear()
+void DebugTriangles::setState(const uint64_t state)
+{
+  state_ = state;
+}
+
+void DebugTriangles::submitAndClear()
 {
   submit();
   clear();

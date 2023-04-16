@@ -95,7 +95,7 @@ void DebugCubes::clear()
   instances_.clear();
 }
 
-void DebugCubes::submit_and_clear()
+void DebugCubes::submitAndClear()
 {
   submit();
   clear();

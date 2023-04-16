@@ -25,12 +25,14 @@ class DebugLines
   bgfx::ProgramHandle program_handle_;
   bgfx::ViewId view_;
   std::vector<DebugLine> lines_;
+  uint64_t state_;
 
 public:
   void setRenderContext(bgfx::ViewId view, bgfx::ProgramHandle program_handle);
   void setTransform(const as::mat4& transform) { transform_ = transform; }
   void addLine(const as::vec3& begin, const as::vec3& end, uint32_t color);
-  void submit_and_clear();
+  void setState(const uint64_t state);
+  void submitAndClear();
   void submit();
   void clear();
 };

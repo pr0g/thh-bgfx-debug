@@ -84,7 +84,7 @@ void DebugQuads::clear()
   instances_.clear();
 }
 
-void DebugQuads::submit_and_clear()
+void DebugQuads::submitAndClear()
 {
   submit();
   clear();

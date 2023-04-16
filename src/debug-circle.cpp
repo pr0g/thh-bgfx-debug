@@ -156,7 +156,7 @@ void DebugCircles::clear()
   solid_instances_.clear();
 }
 
-void DebugCircles::submit_and_clear()
+void DebugCircles::submitAndClear()
 {
   submit();
   clear();
