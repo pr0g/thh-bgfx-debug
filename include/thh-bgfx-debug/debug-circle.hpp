@@ -31,6 +31,8 @@ class DebugCircles
 
   std::vector<CircleInstance> wire_instances_;
   std::vector<CircleInstance> solid_instances_;
+  uint64_t solid_state_;
+  uint64_t wire_state_;
 
 public:
   static void init();
@@ -43,6 +45,8 @@ public:
   void reserveWireCircles(size_t count);
   void addSolidCircle(const as::mat4& transform, uint32_t color);
   void addWireCircle(const as::mat4& transform, uint32_t color);
+  void setSolidState(uint64_t state);
+  void setWireState(uint64_t state);
   void submitAndClear();
   void submit();
   void clear();

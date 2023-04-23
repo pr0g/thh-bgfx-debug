@@ -68,6 +68,10 @@ DebugCircles::DebugCircles()
     DebugVertex::Layout);
   wire_circle_ibh_ = bgfx::createIndexBuffer(
     bgfx::makeRef(WireCircleIndices, sizeof(WireCircleIndices)));
+
+  wire_state_ = BGFX_STATE_DEFAULT | BGFX_STATE_PT_LINESTRIP | BGFX_STATE_LINEAA
+              | BGFX_STATE_BLEND_ALPHA;
+  solid_state_ = BGFX_STATE_DEFAULT | BGFX_STATE_BLEND_ALPHA | BGFX_STATE_MSAA;
 }
 
 DebugCircles::~DebugCircles()
@@ -140,14 +144,21 @@ static void submitCircles(
 void DebugCircles::submit()
 {
   submitCircles(
-    wire_circle_vbh_, wire_circle_ibh_,
-    BGFX_STATE_DEFAULT | BGFX_STATE_PT_LINESTRIP | BGFX_STATE_LINEAA
-      | BGFX_STATE_BLEND_ALPHA,
-    view_, program_handle_, wire_instances_);
+    solid_circle_vbh_, solid_circle_ibh_, solid_state_, view_, program_handle_,
+    solid_instances_);
   submitCircles(
-    solid_circle_vbh_, solid_circle_ibh_,
-    BGFX_STATE_DEFAULT | BGFX_STATE_BLEND_ALPHA | BGFX_STATE_MSAA, view_,
-    program_handle_, solid_instances_);
+    wire_circle_vbh_, wire_circle_ibh_, wire_state_, view_, program_handle_,
+    wire_instances_);
+}
+
+void DebugCircles::setSolidState(const uint64_t state)
+{
+  solid_state_ = state;
+}
+
+void DebugCircles::setWireState(const uint64_t state)
+{
+  wire_state_ = state;
 }
 
 void DebugCircles::clear()
