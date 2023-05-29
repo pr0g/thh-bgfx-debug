@@ -8,7 +8,7 @@ include(FetchContent)
 FetchContent_Declare(
   as
   GIT_REPOSITORY https://github.com/pr0g/as.git
-  GIT_TAG 9355e7572b354cdce950cedd131acd68a910804c)
+  GIT_TAG 984e542ee67a4bbb9462aabb0ab2313973997c12)
 FetchContent_Declare(
   cmake-helpers
   GIT_REPOSITORY https://github.com/pr0g/cmake-helpers.git
