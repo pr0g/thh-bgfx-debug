@@ -25,7 +25,9 @@ target_sources(
           src/debug-circle.cpp
           src/debug-sphere.cpp
           src/debug-quad.cpp
+          src/debug-quad-uv.cpp
           src/debug-vertex.cpp
+          src/debug-vertex-uv.cpp
           src/debug-shader.cpp
           src/debug-triangle.cpp)
 target_include_directories(
