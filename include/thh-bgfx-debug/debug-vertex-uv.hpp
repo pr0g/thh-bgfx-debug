@@ -9,7 +9,7 @@ namespace dbg
 struct DebugUvVertex
 {
   DebugUvVertex() = default;
-  DebugUvVertex(const as::vec3& position, const as::vec<int16_t, 2>& uv)
+  DebugUvVertex(const as::vec3& position, const as::vec2f& uv)
     : position_(position), uv_(uv)
   {
   }
@@ -17,7 +17,7 @@ struct DebugUvVertex
   static void init();
 
   as::vec3 position_;
-  as::vec<int16_t, 2> uv_;
+  as::vec2f uv_;
 
   static inline bgfx::VertexLayout Layout;
 };

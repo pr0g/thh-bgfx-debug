@@ -4,10 +4,10 @@ namespace dbg
 {
 
 const DebugUvVertex DebugUvQuads::QuadVertices[] = {
-  {as::vec3{0.0f, 0.0f, 0.0f}, as::vec<int16_t, 2>{0, 0x7fff}},
-  {as::vec3{1.0f, 0.0f, 0.0f}, as::vec<int16_t, 2>{0x7fff, 0x7fff}},
-  {as::vec3{1.0f, 1.0f, 0.0f}, as::vec<int16_t, 2>{0x7fff, 0}},
-  {as::vec3{0.0f, 1.0f, 0.0f}, as::vec<int16_t, 2>{0, 0}}};
+  {as::vec3{0.0f, 0.0f, 0.0f}, as::vec2f{0.0f, 1.0f}},
+  {as::vec3{1.0f, 0.0f, 0.0f}, as::vec2f{1.0f, 1.0f}},
+  {as::vec3{1.0f, 1.0f, 0.0f}, as::vec2f{1.0f, 0.0f}},
+  {as::vec3{0.0f, 1.0f, 0.0f}, as::vec2f{0.0f, 0.0f}}};
 
 const uint16_t DebugUvQuads::QuadIndices[] = {0, 1, 2, 0, 2, 3};
 
@@ -66,6 +66,16 @@ void DebugUvQuads::submit()
     bgfx::setState(state_);
     bgfx::submit(view_, program_handle_);
   }
+}
+
+void DebugUvQuads::setTexture(const bgfx::TextureHandle texture)
+{
+  texture_ = texture;
+}
+
+void DebugUvQuads::setSampler(const bgfx::UniformHandle sampler)
+{
+  sampler_ = sampler;
 }
 
 void DebugUvQuads::clear()

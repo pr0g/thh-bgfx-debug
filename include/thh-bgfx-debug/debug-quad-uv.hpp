@@ -16,6 +16,8 @@ class DebugUvQuads
   bgfx::VertexBufferHandle quad_vbh_;
   bgfx::IndexBufferHandle quad_ibh_;
   bgfx::ProgramHandle program_handle_;
+  bgfx::UniformHandle sampler_;
+  bgfx::TextureHandle texture_;
   bgfx::ViewId view_;
   uint64_t state_;
 
@@ -32,9 +34,8 @@ public:
   DebugUvQuads();
   ~DebugUvQuads();
 
-  bgfx::UniformHandle sampler_;
-  bgfx::TextureHandle texture_;
-
+  void setTexture(bgfx::TextureHandle texture);
+  void setSampler(bgfx::UniformHandle sampler);
   void setRenderContext(bgfx::ViewId view, bgfx::ProgramHandle program_handle);
   void reserveQuads(size_t count);
   void addQuad(const as::mat4& transform);
