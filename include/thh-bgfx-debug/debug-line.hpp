@@ -21,7 +21,7 @@ struct DebugLine
 
 class DebugLines
 {
-  as::mat4 transform_ = as::mat4::identity();
+  as::mat4f transform_ = as::mat4f::identity();
   bgfx::ProgramHandle program_handle_;
   bgfx::ViewId view_;
   std::vector<DebugLine> lines_;
@@ -29,7 +29,7 @@ class DebugLines
 
 public:
   void setRenderContext(bgfx::ViewId view, bgfx::ProgramHandle program_handle);
-  void setTransform(const as::mat4& transform) { transform_ = transform; }
+  void setTransform(const as::mat4f& transform) { transform_ = transform; }
   void addLine(const as::vec3& begin, const as::vec3& end, uint32_t color);
   void setState(uint64_t state);
   void submitAndClear();

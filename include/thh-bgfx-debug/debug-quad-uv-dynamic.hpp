@@ -36,7 +36,7 @@ struct DebugUvQuadDynamic
 
 class DebugUvQuadsDynamic
 {
-  as::mat4 transform_ = as::mat4::identity();
+  as::mat4f transform_ = as::mat4f::identity();
   bgfx::ProgramHandle program_handle_;
   bgfx::ViewId view_;
   std::vector<uint16_t> indices_;
@@ -51,7 +51,7 @@ public:
 
   void setSampler(bgfx::UniformHandle sampler);
   void setRenderContext(bgfx::ViewId view, bgfx::ProgramHandle program_handle);
-  void setTransform(const as::mat4& transform) { transform_ = transform; }
+  void setTransform(const as::mat4f& transform) { transform_ = transform; }
   void addQuad(
     const as::vec3& min, const as::vec3& max,
     bgfx::TextureHandle texture_handle);
