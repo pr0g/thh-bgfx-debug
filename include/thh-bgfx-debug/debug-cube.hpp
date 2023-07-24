@@ -21,12 +21,12 @@ class DebugCubes
   struct CubeInstance
   {
     CubeInstance() = default;
-    CubeInstance(const as::mat4& transform, uint32_t color)
+    CubeInstance(const as::mat4f& transform, uint32_t color)
       : transform_(transform), color_(color)
     {
     }
 
-    as::mat4 transform_;
+    as::mat4f transform_;
     uint32_t color_;
   };
 
@@ -40,14 +40,14 @@ public:
 
   void setRenderContext(bgfx::ViewId view, bgfx::ProgramHandle program_handle);
   void reserveCubes(size_t count);
-  void addCube(const as::mat4& transform, uint32_t color);
+  void addCube(const as::mat4f& transform, uint32_t color);
   void submitAndClear();
   void submit();
   void clear();
 };
 
 inline void DebugCubes::addCube(
-  const as::mat4& transform, uint32_t color)
+  const as::mat4f& transform, uint32_t color)
 {
   instances_.emplace_back(transform, color);
 }

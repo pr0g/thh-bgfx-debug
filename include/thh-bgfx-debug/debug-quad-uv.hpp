@@ -24,8 +24,8 @@ class DebugUvQuads
   struct QuadInstance
   {
     QuadInstance() = default;
-    QuadInstance(const as::mat4& transform) : transform_(transform) {}
-    as::mat4 transform_;
+    QuadInstance(const as::mat4f& transform) : transform_(transform) {}
+    as::mat4f transform_;
   };
 
   std::vector<QuadInstance> instances_;
@@ -38,14 +38,14 @@ public:
   void setSampler(bgfx::UniformHandle sampler);
   void setRenderContext(bgfx::ViewId view, bgfx::ProgramHandle program_handle);
   void reserveQuads(size_t count);
-  void addQuad(const as::mat4& transform);
+  void addQuad(const as::mat4f& transform);
   void setState(uint64_t state);
   void submitAndClear();
   void submit();
   void clear();
 };
 
-inline void DebugUvQuads::addQuad(const as::mat4& transform)
+inline void DebugUvQuads::addQuad(const as::mat4f& transform)
 {
   instances_.emplace_back(transform);
 }

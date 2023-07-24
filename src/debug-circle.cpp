@@ -18,14 +18,14 @@ static uint16_t SolidCircleIndices[SolidCircleIndicesCount];
 void DebugCircles::init()
 {
   {
-    SolidCircleVertices[0] = {as::vec3::zero(), 0xffffffff};
+    SolidCircleVertices[0] = {as::vec3f::zero(), 0xffffffff};
 
     float rot = 0.0f;
     const float increment =
       as::k_tau / static_cast<float>(SolidCircleVerticesCount - 1);
     for (size_t i = 1; i < SolidCircleVerticesCount; ++i) {
       SolidCircleVertices[i] = {
-        as::vec3(std::cos(rot), std::sin(rot), 0.0f), 0xffffffff};
+        as::vec3f(std::cos(rot), std::sin(rot), 0.0f), 0xffffffff};
       rot += increment;
     }
 
@@ -47,7 +47,7 @@ void DebugCircles::init()
       as::k_tau / static_cast<float>(WireCircleVerticesCount);
     for (size_t i = 0; i < WireCircleVerticesCount; ++i) {
       WireCircleVertices[i] = {
-        as::vec3(std::cos(rot), std::sin(rot), 0.0f), 0xffffffff};
+        as::vec3f(std::cos(rot), std::sin(rot), 0.0f), 0xffffffff};
       WireCircleIndices[i] = i;
       rot += increment;
     }

@@ -8,7 +8,7 @@ DebugSpheres::DebugSpheres(DebugCircles& debug_circles)
 {
 }
 
-void DebugSpheres::addSphere(const as::mat4& transform, const uint32_t color)
+void DebugSpheres::addSphere(const as::mat4f& transform, const uint32_t color)
 {
   constexpr size_t Loops = 8;
   const float vertical_angle_inc_rad = as::radians(180.0f / float(Loops));
@@ -22,7 +22,7 @@ void DebugSpheres::addSphere(const as::mat4& transform, const uint32_t color)
 
     const auto translation = as::mat4_from_mat3_vec3(
       as::mat3_rotation_x(as::radians(90.0f)),
-      as::vec3::axis_y(vertical_position));
+      as::vec3f::axis_y(vertical_position));
     const auto scale = as::mat4_from_mat3(as::mat3_scale(horizontal_scale));
 
     debug_circles_.addWireCircle(

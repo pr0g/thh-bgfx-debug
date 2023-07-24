@@ -4,10 +4,10 @@ namespace dbg
 {
 
 const DebugUvVertex DebugUvQuads::QuadVertices[] = {
-  {as::vec3{0.0f, 0.0f, 0.0f}, as::vec2f{0.0f, 1.0f}},
-  {as::vec3{1.0f, 0.0f, 0.0f}, as::vec2f{1.0f, 1.0f}},
-  {as::vec3{1.0f, 1.0f, 0.0f}, as::vec2f{1.0f, 0.0f}},
-  {as::vec3{0.0f, 1.0f, 0.0f}, as::vec2f{0.0f, 0.0f}}};
+  {as::vec3f{0.0f, 0.0f, 0.0f}, as::vec2f{0.0f, 1.0f}},
+  {as::vec3f{1.0f, 0.0f, 0.0f}, as::vec2f{1.0f, 1.0f}},
+  {as::vec3f{1.0f, 1.0f, 0.0f}, as::vec2f{1.0f, 0.0f}},
+  {as::vec3f{0.0f, 1.0f, 0.0f}, as::vec2f{0.0f, 0.0f}}};
 
 const uint16_t DebugUvQuads::QuadIndices[] = {0, 1, 2, 0, 2, 3};
 

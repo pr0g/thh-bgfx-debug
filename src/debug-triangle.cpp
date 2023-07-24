@@ -20,7 +20,7 @@ void DebugTriangles::addTriangle(const Triangle& triangle, const uint32_t color)
 }
 
 void DebugTriangles::addTriangle(
-  const as::vec3& v1, const as::vec3& v2, const as::vec3& v3,
+  const as::vec3f& v1, const as::vec3f& v2, const as::vec3f& v3,
   const uint32_t color)
 {
   triangles_.emplace_back(v1, v2, v3, color);

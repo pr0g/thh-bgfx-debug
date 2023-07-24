@@ -39,7 +39,7 @@ static void appendIndices(std::vector<uint16_t>& indices)
 }
 
 void DebugUvQuadsDynamic::addQuad(
-  const as::vec3& min, const as::vec3& max,
+  const as::vec3f& min, const as::vec3f& max,
   const bgfx::TextureHandle texture_handle)
 {
   quads_.emplace_back(min, max);
@@ -48,7 +48,7 @@ void DebugUvQuadsDynamic::addQuad(
 }
 
 void DebugUvQuadsDynamic::addQuad(
-  const as::vec3& min, const as::vec3& max, const float l, const float r,
+  const as::vec3f& min, const as::vec3f& max, const float l, const float r,
   const float t, const float b, const bgfx::TextureHandle texture_handle)
 {
   quads_.emplace_back(min, max, l, r, t, b);

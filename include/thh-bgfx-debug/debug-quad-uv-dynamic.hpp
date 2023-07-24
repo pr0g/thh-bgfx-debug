@@ -10,21 +10,21 @@ namespace dbg
 
 struct DebugUvQuadDynamic
 {
-  DebugUvQuadDynamic(const as::vec3& min, const as::vec3& max)
-    : bl_(as::vec3(min.x, min.y, min.z), as::vec2f{0.0f, 1.0f}),
-      br_(as::vec3(max.x, min.y, max.z), as::vec2f{1.0f, 1.0f}),
-      tr_(as::vec3(max.x, max.y, max.z), as::vec2f{1.0f, 0.0f}),
-      tl_(as::vec3(min.x, max.y, min.z), as::vec2f{0.0f, 0.0f})
+  DebugUvQuadDynamic(const as::vec3f& min, const as::vec3f& max)
+    : bl_(as::vec3f(min.x, min.y, min.z), as::vec2f{0.0f, 1.0f}),
+      br_(as::vec3f(max.x, min.y, max.z), as::vec2f{1.0f, 1.0f}),
+      tr_(as::vec3f(max.x, max.y, max.z), as::vec2f{1.0f, 0.0f}),
+      tl_(as::vec3f(min.x, max.y, min.z), as::vec2f{0.0f, 0.0f})
   {
   }
 
   DebugUvQuadDynamic(
-    const as::vec3& min, const as::vec3& max, const float l, const float r,
+    const as::vec3f& min, const as::vec3f& max, const float l, const float r,
     const float t, const float b)
-    : bl_(as::vec3(min.x, min.y, min.z), as::vec2f{l, t}),
-      br_(as::vec3(max.x, min.y, max.z), as::vec2f{r, t}),
-      tr_(as::vec3(max.x, max.y, max.z), as::vec2f{r, b}),
-      tl_(as::vec3(min.x, max.y, min.z), as::vec2f{l, b})
+    : bl_(as::vec3f(min.x, min.y, min.z), as::vec2f{l, t}),
+      br_(as::vec3f(max.x, min.y, max.z), as::vec2f{r, t}),
+      tr_(as::vec3f(max.x, max.y, max.z), as::vec2f{r, b}),
+      tl_(as::vec3f(min.x, max.y, min.z), as::vec2f{l, b})
   {
   }
 
@@ -53,10 +53,10 @@ public:
   void setRenderContext(bgfx::ViewId view, bgfx::ProgramHandle program_handle);
   void setTransform(const as::mat4f& transform) { transform_ = transform; }
   void addQuad(
-    const as::vec3& min, const as::vec3& max,
+    const as::vec3f& min, const as::vec3f& max,
     bgfx::TextureHandle texture_handle);
   void addQuad(
-    const as::vec3& min, const as::vec3& max, float l, float r, float t,
+    const as::vec3f& min, const as::vec3f& max, float l, float r, float t,
     float b, bgfx::TextureHandle texture_handle);
   void setState(uint64_t state);
   void submitAndClear();
