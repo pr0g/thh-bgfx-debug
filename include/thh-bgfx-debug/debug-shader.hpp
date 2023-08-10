@@ -8,6 +8,8 @@ namespace dbg
 struct EmbeddedShaderArgs;
 extern const EmbeddedShaderArgs SimpleEmbeddedShaderArgs;
 extern const EmbeddedShaderArgs InstanceEmbeddedShaderArgs;
+extern const EmbeddedShaderArgs UvEmbeddedShaderArgs;
+extern const EmbeddedShaderArgs InstanceUvEmbeddedShaderArgs;
 
 class EmbeddedShaderProgram
 {
